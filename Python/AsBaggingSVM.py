@@ -307,7 +307,10 @@ def __train_test_model(feature_method, t, c1, beta, dc, input_file, train_pos_se
 
     f.write("Amino label 1\n")
     for inx in range(len(s)):
-        f.write("{} {} {}\n".format(test_seq["Amino"][inx], y_test[inx], s[inx]))
+        f.write("{} {} {}\n".format(test_seq["Amino"][inx], y_test[inx], round(s[inx], 4)))
+    f.write("\n\nThe value of Amino columns represents substrate octapeptide sequences\n")
+    f.write("The value of label columns represents the type of substrate octapeptide sequences(1 indicates the presence of a cleavage site, -1 indicates no cleavage site)\n")
+    f.write("The value of 1 columns represents the probability that the model predicts the existence of a cleavage site for the corresponding substrate octapeptide sequence\n")
     f.close()
     print("The result of AsBaggingSVM method is saved")
 
